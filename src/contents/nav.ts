@@ -12,8 +12,8 @@ export const navItems = [
     link: "/tdeals/",
   },
   {
-    title: "Mobiles",
-    link: "/mobiles/",
+    title: "Account",
+    link: "/Account/",
   },
   {
     title: "Electronics",

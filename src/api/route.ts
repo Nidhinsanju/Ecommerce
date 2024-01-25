@@ -5,12 +5,11 @@ import connect from "@/db";
 import { NextApiRequest } from "next";
 import mongoose from "mongoose";
 
-export const getUsers = async () => {
+export const getProducts = async () => {
   try {
     await connect();
-    const user = await User.find();
     const product = await Product.find();
-    return NextResponse.json([user,product], { status: 200 });
+    return NextResponse.json(product, { status: 200 });
   } catch (error) {
     console.log("error fetching data", error);
     return NextResponse.json(

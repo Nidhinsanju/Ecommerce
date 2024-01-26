@@ -1,9 +1,8 @@
 import AccoutSettings from "@/components/accoutPress";
-import name from "@/components/accoutPress";
-import { NextApiRequest, NextApiResponse } from "next";
+
 export default async function Account() {
   return (
-    <div>
+    <div className="text-gray-100">
       <AccoutSettings />
     </div>
   );

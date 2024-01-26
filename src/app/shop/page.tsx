@@ -1,16 +1,4 @@
-import { fetchData } from "../api/fetchDummpy";
 import { getProducts } from "../api/route";
-import { NextResponse } from "next/server";
-import Add from "@/components/Home1";
-import ButtonPress from "@/components/buttonPress";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Products from "@/models/Products";
 
@@ -18,7 +6,7 @@ interface Products {
   Title: String;
   Description: String;
   Price: Number;
-  ProductID: Number;
+  ProductID: any;
   Imagelink: string;
   Stock: Boolean;
 }
@@ -33,7 +21,7 @@ async function Page() {
         {data?.map((data1: Products) => {
           return (
             <div
-              key={data1.ProductID.toString()}
+              key={data1.ProductID}
               className=" h-60 bg-white w-1/5 flex flex-row  rounded-xl shadow-gray-400 shadow-sm"
             >
               <div className=" h-full w-2/5 ">

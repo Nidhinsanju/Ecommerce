@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import User from "@/db/models/User";
-import Product from "@/db/models/Products";
-import connect from "@/db";
+import User from "@/models/User";
+import Product from "@/models/Products";
+import connect from "@/libs/db";
 import { NextApiRequest } from "next";
 import mongoose from "mongoose";
 

@@ -13,10 +13,10 @@ export const navItems = [
   },
   {
     title: "Cart",
-    link: "/Account/",
+    link: "/cart/",
   },
   {
     title: "Account",
-    link: "/electronics/",
+    link: "/account/",
   },
 ];

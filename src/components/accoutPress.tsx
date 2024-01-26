@@ -33,7 +33,7 @@ export default function AccoutSettings() {
   return (
     <div>
       <main className="bg-slate-50 ">
-        <label className="flex m-7 border-2 border-sky-500 w-2/5">
+        {/* <label className="flex m-7 border-2 border-sky-500 w-2/5">
           Username:
           <input defaultValue={name ?? name}></input>
         </label>
@@ -45,8 +45,7 @@ export default function AccoutSettings() {
           Conform Password:
           <input onChange={(e) => Setpassword(e.target.value)}></input>
         </label>
-        <button className="w-4/5">Submit</button>
-        <br />
+        <button className="w-4/5">Submit</button> */}
       </main>
     </div>
   );

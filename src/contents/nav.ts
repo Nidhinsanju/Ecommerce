@@ -12,11 +12,11 @@ export const navItems = [
     link: "/tdeals/",
   },
   {
-    title: "Account",
+    title: "Cart",
     link: "/Account/",
   },
   {
-    title: "Electronics",
+    title: "Account",
     link: "/electronics/",
   },
 ];

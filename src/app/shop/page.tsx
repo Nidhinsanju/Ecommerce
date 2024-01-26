@@ -20,10 +20,7 @@ async function Page() {
       <main className="flex flex-wrap flex-row gap-8 items-center justify-center my-10">
         {data?.map((data1: Products) => {
           return (
-            <div
-              key={data1.ProductID}
-              className=" h-60 bg-white w-1/5 flex flex-row  rounded-xl shadow-gray-400 shadow-sm"
-            >
+            <div className=" h-60 bg-white w-1/5 flex flex-row  rounded-xl shadow-gray-400 shadow-sm">
               <div className=" h-full w-2/5 ">
                 <img
                   src={data1.Imagelink}
@@ -32,7 +29,10 @@ async function Page() {
               </div>
 
               <div className=" h-full w-2/4 flex flex-col pl-5 items-center justify-center ">
-                <div className=" h-3/5 w-full  flex flex-col justify-center">
+                <div
+                  className=" h-3/5 w-full  flex flex-col justify-center"
+                  key={data1.ProductID}
+                >
                   <h1 className="font-extrabold text-lg font-serif">
                     {data1.Title}
                   </h1>

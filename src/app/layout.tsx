@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={popins.className}>
+      <body className={`${popins.className} bg-black`}>
         <div>
           <Nav />
           {children}

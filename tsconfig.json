@@ -27,7 +27,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/db/model/User.js",
-    "src/api/post.ts",
+    "src/app/api/post.ts",
     "src/app/db/index.js"
   ],
   "exclude": ["node_modules"]

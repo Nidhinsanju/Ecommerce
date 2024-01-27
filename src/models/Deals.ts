@@ -5,10 +5,10 @@ const { Schema } = mongoose;
 const dealsSchema = new Schema({
   Title: String,
   Description: String,
-  DealPrice: Number,
+  Price: Number,
   ProductID: Number,
   Imagelink: String,
-  Stock: Boolean,
+  DealPrice: Number,
 });
 
 export default mongoose.models.ProductDeals ||

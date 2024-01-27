@@ -15,10 +15,10 @@ export default async function Cart() {
 
   return (
     <div className="text-white m-10 flex flex-wrap justify-center">
-      {data.map((data1: Cart) => {
+      {data?.map((data1: Cart) => {
         return (
           <div
-            key={data1.ProductID}
+            key={data1.ProductID.toString()}
             className="w-3/6 max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
             <img
@@ -28,17 +28,17 @@ export default async function Cart() {
             />
             <div className="px-4 pb-5 h-44 ">
               <div>
-                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3">
+                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3  max-h-5 min-h-5">
                   {data1.Title}
                 </h3>
-                <h5 className="mt-5 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mt-5 text-xl max-h-9 min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
                   {data1.Description}
                 </h5>
               </div>
-              <div className="flex items-center justify-between mt-12">
-                <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                  $599
-                </span>
+              <div className="flex items-center justify-between mt-11 max-h-10 min-h-10">
+                <main className="text-2xl font-bold text-gray-900 dark:text-white max-h-10 min-h-10">
+                  Rs{data1.Price.toString()}/-
+                </main>
                 <ButtonPress ProductID={data1.ProductID} />
               </div>
             </div>

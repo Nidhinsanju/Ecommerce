@@ -4,11 +4,11 @@ import Products from "@/models/Products";
 
 interface Products {
   Title: String;
+  Price: Number;
   Description: String;
   DealPrice: Number;
   ProductID: Number;
   Imagelink: string;
-  Stock: Boolean;
 }
 
 async function Deals() {
@@ -28,15 +28,18 @@ async function Deals() {
             />
             <div className="px-4 pb-5 h-44 ">
               <div>
-                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3">
+                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3  max-h-5 min-h-5">
                   {data1.Title}
                 </h3>
-                <h5 className="mt-5 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mt-5 text-xl max-h-9 min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
                   {data1.Description}
                 </h5>
+                <p className="text-black line-through font-serif text-x">
+                  Rs{data1.Price.toString()}/-
+                </p>
               </div>
-              <div className="flex items-center justify-between mt-12">
-                <main className="text-3xl font-bold text-gray-900 dark:text-white">
+              <div className="flex items-center justify-between mt-5 max-h-10 min-h-8">
+                <main className="text-2xl font-bold text-gray-900 dark:text-white">
                   Rs{data1.DealPrice.toString()}/-
                 </main>
                 <ButtonPress ProductID={data1.ProductID} />

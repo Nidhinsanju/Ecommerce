@@ -1,3 +1,3 @@
-export async function Get() {
+export default async function Deals() {
   return <div>hi</div>;
 }

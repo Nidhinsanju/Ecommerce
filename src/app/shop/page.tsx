@@ -1,6 +1,6 @@
 import { getProducts } from "@/utils/Products";
 import { Button } from "@/components/ui/button";
-import Products from "@/models/Products";
+
 import ButtonPress from "@/components/buttonPress";
 
 interface Products {
@@ -22,7 +22,7 @@ async function Page() {
           return (
             <div
               key={data1.Imagelink}
-              className=" h-60 bg-white w-1/5 flex flex-row  rounded-xl shadow-gray-400 shadow-sm justify-content "
+              className=" h-60 bg-white w-1/5 flex  rounded-xl shadow-gray-400 shadow-sm justify-content "
             >
               <div className="h-full w-2/5">
                 <img
@@ -42,7 +42,6 @@ async function Page() {
                 </div>
                 <div className=" h-1/5 w-full  ">
                   <ButtonPress ProductID={data1.ProductID} />
-                  {/* <Button>Buy now </Button> */}
                 </div>
               </div>
             </div>

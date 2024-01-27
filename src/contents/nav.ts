@@ -1,4 +1,4 @@
-export const navItems = [
+export const Items = [
   {
     title: "Shop",
     link: "/shop/",

@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import User from "@/models/User";
 import Product from "@/models/Products";
 import connect from "@/libs/db";
-    
 
 export const getProducts = async () => {
   try {

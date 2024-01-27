@@ -12,7 +12,6 @@ interface Products {
   Stock: Boolean;
 }
 
-// type ApiResponse = NextResponse<any[]> | NextResponse<{ error: string }>;
 async function Page() {
   const data = await getData();
 

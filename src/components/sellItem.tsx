@@ -12,10 +12,6 @@ export default function Sellitems() {
       Image: image,
     };
     setData(dataObejct);
-
-    // const res = await fetch("http://localhost:3000/api/sell", {
-    //   body: data,
-    // });
   };
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");

@@ -4,6 +4,7 @@
 import connect from "@/libs/db";
 import Sellitem from "@/models/SellItems";
 import { NextResponse } from "next/server";
+import User from "@/models/User";
 
 export async function GET() {
   try {
@@ -15,5 +16,16 @@ export async function GET() {
       { errror: "internal server error" },
       { status: 500 }
     );
+  }
+}
+
+export async function POST() {
+  try {
+    await connect();
+    const user = await User.find();
+    // const cart = await Cart.find();
+    return NextResponse.json({ status: 200 });
+  } catch (error) {
+    return NextResponse.json("Internal server error", { status: 500 });
   }
 }

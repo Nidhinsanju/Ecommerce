@@ -10,5 +10,5 @@ const sellItemSchema = new Schema({
   Category: String,
 });
 
-export default mongoose.models.Product ||
+export default mongoose.models.Sellitem ||
   mongoose.model("Sellitem", sellItemSchema);

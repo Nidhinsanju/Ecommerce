@@ -5,7 +5,7 @@ export default function ButtonPress({ ProductID }: { ProductID: Number }) {
   return (
     <div className="mt-4">
       <Button onClick={() => console.log(ProductID)} variant="outline">
-        Button
+        Buy now
       </Button>
     </div>
   );

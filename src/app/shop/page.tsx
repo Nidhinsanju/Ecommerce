@@ -1,4 +1,4 @@
-import { getProducts } from "../api/products/route";
+import { getProducts } from "@/utils/Products";
 import { Button } from "@/components/ui/button";
 import Products from "@/models/Products";
 import ButtonPress from "@/components/buttonPress";

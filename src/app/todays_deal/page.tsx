@@ -1,3 +1,3 @@
-async function Get() {
+export async function Get() {
   return <div>hi</div>;
 }

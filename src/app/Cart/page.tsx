@@ -5,7 +5,7 @@ interface Cart {
   Title: String;
   Description: String;
   Price: Number;
-  ProductID: Number;
+  ProductID: any;
   Imagelink: string;
   Stock: Boolean;
 }
@@ -17,7 +17,10 @@ export default async function Cart() {
     <div className="text-white m-10 flex flex-wrap justify-center">
       {data.map((data1: Cart) => {
         return (
-          <div className="w-3/6 max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3">
+          <div
+            key={data1.ProductID}
+            className="w-3/6 max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+          >
             <img
               className="p-4 rounded-t-lg max-h-48 mx-auto max-w-full"
               src={data1.Imagelink}

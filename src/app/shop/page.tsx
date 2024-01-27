@@ -7,7 +7,7 @@ interface Products {
   Title: String;
   Description: String;
   Price: Number;
-  ProductID: Number;
+  ProductID: any;
   Imagelink: string;
   Stock: Boolean;
 }
@@ -21,7 +21,7 @@ async function Page() {
         {data?.map((data1: Products) => {
           return (
             <div
-              key={data1.Imagelink}
+              key={data1.ProductID}
               className=" h-60 bg-white w-1/5 flex  rounded-xl shadow-gray-400 shadow-sm justify-content "
             >
               <div className="h-full w-2/5">

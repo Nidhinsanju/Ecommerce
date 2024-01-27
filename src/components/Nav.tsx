@@ -6,6 +6,7 @@ import { Url } from "next/dist/shared/lib/router/router";
 interface Nav {
   title: String;
   link: Url;
+  key?: any;
 }
 
 export default async function Nav() {
@@ -15,6 +16,7 @@ export default async function Nav() {
         <Link
           className="text-white font-extrabold text-lg  tracking-wider	"
           href={data.link}
+          key={data.key}
         >
           {data.title}
         </Link>

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Notfound from "@/app/not-found";
+import { BACKEND_URL } from "@/contents/Url";
 
 export default function AccoutSettings() {
   const [name, Setname] = useState();
@@ -9,7 +10,7 @@ export default function AccoutSettings() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:3000/api/user", {
+      const res = await fetch(BACKEND_URL + "/api/user", {
         cache: "no-store",
       });
       if (!res) {

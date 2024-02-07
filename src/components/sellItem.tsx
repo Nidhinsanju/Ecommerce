@@ -11,6 +11,7 @@ export default function Sellitems() {
       category: category,
       Image: image,
     };
+    alert("You will get a callback");
     setData(dataObejct);
   };
   const [productName, setProductName] = useState("");
@@ -78,7 +79,7 @@ export default function Sellitems() {
         className="text-black bg-white p-1  rounded-md "
         onClick={Button1}
       >
-        button
+        Submit
       </button>
     </div>
   );

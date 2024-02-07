@@ -1,4 +1,3 @@
-"use client";
 import ButtonPress from "@/components/buttonPress";
 import { getCart } from "@/utils/Products";
 

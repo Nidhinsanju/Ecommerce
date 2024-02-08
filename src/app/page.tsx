@@ -1,4 +1,3 @@
-import Login from "@/components/login";
 import Shop from "./shop/page";
 
 export default function Page() {

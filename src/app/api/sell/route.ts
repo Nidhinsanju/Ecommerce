@@ -9,6 +9,7 @@ import User from "@/models/User";
 export async function GET() {
   try {
     await connect();
+
     const item = await Sellitem.find();
     return NextResponse.json(item, { status: 200 });
   } catch (errror) {

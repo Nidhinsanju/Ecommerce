@@ -1,6 +1,6 @@
 import AccoutSettings from "@/components/accoutPress";
 
-export default function Accountdetails() {
+export default async function Accountdetails() {
   return (
     <div>
       <AccoutSettings />

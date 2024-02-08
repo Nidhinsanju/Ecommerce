@@ -1,18 +1,12 @@
+"use client";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 export default function Options() {
+  const router = useRouter();
   return (
     <div className="max-w-sm mx-auto mt-52  ">
-      {/* <div className="  bg-black  border-gray-200 rounded-lg shadow">
-        <a href="/account/accountdetail">
-          <h5 className="mb-14 text-2xl border  w-full  font-bold tracking-tight text-white dark:text-black">
-            Password Update
-          </h5>
-        </a>
-        <a href="#">
-          <h5 className="mb-7 border w-full text-2xl font-bold tracking-tight text-white dark:text-black">
-            FAQ
-          </h5>
-        </a>
-      </div> */}
       <div className="rounded-lg shadow border-grey-200 p-8 ">
         <ul role="list" className="divide-y divide-white">
           <li className="py-4 ">
@@ -32,6 +26,9 @@ export default function Options() {
         </ul>
       </div>
       <button
+        onClick={() => {
+          router.push("/api/auth/signout");
+        }}
         type="button"
         className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
       >

@@ -1,3 +1,0 @@
-function empty() {
-  return null;
-}

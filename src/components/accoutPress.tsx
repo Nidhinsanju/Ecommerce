@@ -1,20 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
-import Notfound from "@/app/not-found";
 import { BACKEND_URL } from "@/contents/Url";
+import axios from "axios";
 
 export default function AccoutSettings() {
-  const [name, Setname] = useState();
-  const [password, Setpassword] = useState("");
   const [newpassword, Setnewpassword] = useState("");
+  const [conformnewpassword, Setconformnewpassword] = useState("");
+  const [name, Setname] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(BACKEND_URL + "/api/user", {
-        cache: "no-store",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: name,
+        }),
       });
       if (!res) {
-        return <Notfound />;
+        return console.log("error");
       }
 
       const data = await res.json();
@@ -40,7 +46,7 @@ export default function AccoutSettings() {
           </label>
           <input
             type="email"
-            className="shadow-sm bg-black border  border-red-600 text-red-700 text-sm rounded-lg  block w-full p-2.5 "
+            className="shadow-sm bg-black border  text-white border-red-600  text-sm rounded-lg  block w-full p-2.5 "
             placeholder={name}
             disabled
           />
@@ -50,7 +56,9 @@ export default function AccoutSettings() {
             New password
           </label>
           <input
-            type="password"
+            onChange={(e) => {
+              Setnewpassword(e.target.value);
+            }}
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
           />
@@ -61,6 +69,9 @@ export default function AccoutSettings() {
           </label>
           <input
             type="password"
+            onChange={(e) => {
+              Setconformnewpassword(e.target.value);
+            }}
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
           />

@@ -2,9 +2,16 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Options() {
+  const [customerID, setcustomerID] = useState(String);
   const router = useRouter();
+  useEffect(() => {
+    const CustomerID = localStorage.getItem("CustomerID");
+    setcustomerID(String(CustomerID));
+  }, [customerID]);
+
   return (
     <div className="max-w-sm mx-auto mt-52  ">
       <div className="rounded-lg shadow border-grey-200 p-8 ">
@@ -27,7 +34,8 @@ export default function Options() {
       </div>
       <button
         onClick={() => {
-          router.push("/api/auth/signout");
+          localStorage.removeItem("CustomerID");
+          router.push("/login/");
         }}
         type="button"
         className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"

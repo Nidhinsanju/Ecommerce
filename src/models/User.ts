@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Cart from "./Cart";
 
 const { Schema } = mongoose;
 
@@ -9,6 +10,10 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
+  },
+  customerID: {
+    type: Number,
     required: true,
   },
 });

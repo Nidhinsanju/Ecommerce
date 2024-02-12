@@ -1,3 +1,3 @@
 function empty() {
-  return "hi";
+  return null;
 }

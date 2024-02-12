@@ -13,7 +13,7 @@ interface Cart {
 
 export default async function Cart() {
   const data = await getCardData();
-  if (data === 1) {
+  if (false) {
     return (
       <div className="text-white m-10 flex flex-wrap justify-center">
         {data?.map((products: Cart) => {

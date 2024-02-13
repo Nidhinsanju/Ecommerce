@@ -5,5 +5,5 @@
 
 // export { handler as GET, handler as POST, handler as PUT };
 function empty() {
-  return null;
+  return "hi";
 }

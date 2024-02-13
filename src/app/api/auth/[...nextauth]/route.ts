@@ -7,3 +7,4 @@
 function empty() {
   return "hi";
 }
+export default empty();

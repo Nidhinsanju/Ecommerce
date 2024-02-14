@@ -12,8 +12,8 @@ export default function Login() {
   const [password, Setpassword] = useState("");
 
   return (
-    <div className="min-w-2/4   bg-white border border-gray-200 rounded-lg flex flex-wrap shadow items-center justify-center  p-12 dark:bg-gray-800 dark:border-gray-700">
-      <form className="space-y-5  ">
+    <div className="min-w-2/4 max-w-md mx-auto  mt-28 bg-white border border-gray-200 rounded-lg flex flex-col shadow items-center justify-center  p-12 dark:bg-gray-800 dark:border-gray-700">
+      <form className="space-y-5 w-full ">
         <h5 className="text-xl font-medium text-gray-900 dark:text-white">
           Sign in to our platform
         </h5>
@@ -75,7 +75,7 @@ export default function Login() {
     if (res.status !== 200) {
       console.log("error");
     } else {
-      const { _id, CustomerID: id } = res.data[0];
+      const { CustomerID: id } = res.data[0];
       localStorage.setItem("CustomerID", id);
       router.push("/shop/");
     }

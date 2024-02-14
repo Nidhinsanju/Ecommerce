@@ -39,8 +39,8 @@ async function Deals() {
                 </p>
               </div>
               <div className="flex items-center justify-between mt-5 max-h-10 min-h-8">
-                <main className="text-xl font-bold text-gray-900 dark:text-white">
-                  Rs:{data1.DealPrice.toString()}/-
+                <main className="text-xl font-serif font-bold text-gray-900 dark:text-white">
+                  ₹{data1.DealPrice.toString()}/-
                 </main>
                 <ButtonPress ProductID={data1.ProductID} />
               </div>

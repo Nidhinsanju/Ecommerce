@@ -37,8 +37,8 @@ export default async function Cart() {
                   </h5>
                 </div>
                 <div className="flex items-center justify-between mt-11 max-h-10 min-h-10">
-                  <main className="text-xl font-bold text-gray-900 dark:text-white max-h-10 min-h-10">
-                    Rs:{products.Price.toString()}/-
+                  <main className="text-xl font-bold font-serif text-gray-900 dark:text-white max-h-10 min-h-10">
+                    ₹{products.Price.toString()}/-
                   </main>
                   <ButtonPress ProductID={products.ProductID} />
                 </div>

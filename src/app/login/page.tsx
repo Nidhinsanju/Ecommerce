@@ -7,13 +7,17 @@ import { useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
-
   const [username, Setusernmae] = useState("");
   const [password, Setpassword] = useState("");
 
   return (
     <div className="min-w-2/4 max-w-md mx-auto  mt-28 bg-white border border-gray-200 rounded-lg flex flex-col shadow items-center justify-center  p-12 dark:bg-gray-800 dark:border-gray-700">
-      <form className="space-y-5 w-full ">
+      <form
+        className="space-y-5 w-full "
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <h5 className="text-xl font-medium text-gray-900 dark:text-white">
           Sign in to our platform
         </h5>
@@ -49,7 +53,7 @@ export default function Login() {
           onClick={() => {
             submitData();
           }}
-          type="submit"
+          type="button"
           className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Login to your account
@@ -66,7 +70,6 @@ export default function Login() {
       </form>
     </div>
   );
-
   async function submitData() {
     const res = await axios.post(BACKEND_URL + "/api/login", {
       username: username,
@@ -75,8 +78,9 @@ export default function Login() {
     if (res.status !== 200) {
       console.log("error");
     } else {
-      const { CustomerID: id } = res.data[0];
-      localStorage.setItem("CustomerID", id);
+      const { customerID } = res.data[0];
+      console.log(customerID);
+      localStorage.setItem("CustomerID", customerID);
       router.push("/shop/");
     }
   }

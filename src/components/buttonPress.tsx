@@ -5,10 +5,10 @@ import { BACKEND_URL } from "@/contents/Url";
 import { useEffect, useState } from "react";
 
 export default function ButtonPress({ ProductID }: { ProductID: Number }) {
-  const [customerID, setcustomerID] = useState(Number);
+  const [customerID, setcustomerID] = useState("");
   useEffect(() => {
     const customerID = localStorage.getItem("CustomerID");
-    setcustomerID(Number(customerID));
+    // setcustomerID((customerID));
   }, []);
 
   return (

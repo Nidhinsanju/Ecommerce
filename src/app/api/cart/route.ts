@@ -8,52 +8,20 @@ export async function POST(request: Request) {
   const res = await request.json();
   const { CustomerID, ProductID } = res;
 
-  async function saveCartToDB(newCart: Object) {
-    try {
-      const savedCart = await Cart.create(newCart);
-      return NextResponse.json(savedCart);
-    } catch (error) {
-      console.log(error);
-      return new NextResponse("error", { status: 501 });
-    }
+  if (!CustomerID || !ProductID) {
+    return NextResponse.json("Invalid Request", { status: 304 });
   }
-
   try {
     await connect();
     const cart = await Cart.findOne({ customerID: CustomerID });
-    if (cart && ProductID) {
-      const productObjectIds = await Products.find(
-        { ProductID: { $in: ProductID } },
-        "_id"
-      );
-
-      cart.products.push(...productObjectIds);
-      await cart.save();
-      console.log("Products added to the cart successfully");
-      return NextResponse.json(cart, { status: 200 });
-    }
-
-    if (cart) {
-      if (cart.products.length > 0) {
-        return NextResponse.json(cart, { status: 200 });
-      } else {
-        return NextResponse.json("Add items to create Cart", { status: 201 });
-      }
-    }
-
-    if (!ProductID) {
-      return NextResponse.json("No product selected", { status: 400 });
-    }
-
-    if (!cart) {
-      const newCart = {
-        customerID: CustomerID,
-        products: [],
-      };
-      const savedCart = await saveCartToDB(newCart);
-      const statusCode: any = savedCart.status;
-      return NextResponse.json(statusCode);
-    }
+    const productObjectIds = await Products.find(
+      { ProductID: { $in: ProductID } },
+      "_id"
+    );
+    cart.products.push(...productObjectIds);
+    await cart.save();
+    console.log("Products added to the cart successfully");
+    return NextResponse.json(cart, { status: 200 });
   } catch (error) {
     return NextResponse.json("Internal server error", { status: 500 });
   }

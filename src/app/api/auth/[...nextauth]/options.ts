@@ -1,5 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import User from "@/models/User";
 export const options = {
   providers: [
     CredentialsProvider({
@@ -16,16 +17,17 @@ export const options = {
           placeholder: "password",
         },
       },
-      async authorize(credentials) {
-        const user = { id: "1", name: "sanju", password: "hello123" };
-        if (
-          credentials?.username === user.name &&
-          credentials?.password === user.password
-        ) {
-          return user;
-        } else {
-          return null;
-        }
+      async authorize(credentials: any) {
+        // const { username, password } = credentials;
+        // // const user = await User.find({ username });
+        // // if (
+        //   credentials?.username === user.username &&
+        //   credentials?.password === user.password
+        // ) {
+        //   return user;
+        // } else {
+        return null;
+        // }
       },
     }),
   ],

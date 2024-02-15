@@ -70,6 +70,7 @@ export default function Login() {
       </form>
     </div>
   );
+  
   async function submitData() {
     const res = await axios.post(BACKEND_URL + "/api/login", {
       username: username,

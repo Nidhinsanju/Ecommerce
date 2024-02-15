@@ -3,7 +3,6 @@ import Product from "@/models/Products";
 import Deals from "@/models/Deals";
 import connect from "@/libs/db";
 import Cart from "@/models/Cart";
-import User from "@/models/User";
 
 export const getProducts = async () => {
   try {

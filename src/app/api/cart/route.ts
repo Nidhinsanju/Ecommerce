@@ -1,7 +1,6 @@
 import Cart from "@/models/Cart";
 import connect from "@/libs/db";
 import { NextResponse } from "next/server";
-import { NextApiRequest, NextApiResponse } from "next";
 import Products from "@/models/Products";
 
 export async function POST(request: Request) {

@@ -1,16 +1,13 @@
 "use client";
-import { redirect } from "next/navigation";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Options() {
-  const [customerID, setcustomerID] = useState(String);
   const router = useRouter();
   useEffect(() => {
     const CustomerID = localStorage.getItem("CustomerID");
-    setcustomerID(String(CustomerID));
-  }, [customerID]);
+    const token = localStorage.getItem("token");
+  }, []);
 
   return (
     <div className="max-w-sm mx-auto mt-52  ">
@@ -34,7 +31,8 @@ export default function Options() {
       </div>
       <button
         onClick={() => {
-          localStorage.removeItem("CustomerID");
+          localStorage.removeItem("customerID");
+          localStorage.removeItem("token");
           router.push("/login/");
         }}
         type="button"

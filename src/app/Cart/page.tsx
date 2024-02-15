@@ -12,7 +12,8 @@ interface Cart {
 }
 
 export default async function Cart() {
-  const data = await getCardData();
+  const id = { customerID: 67 };
+  const data = await getCardData(id);
   if (false) {
     return (
       <div className="text-white m-10 flex flex-wrap justify-center">
@@ -52,8 +53,8 @@ export default async function Cart() {
     return <div className="bg-black text-white">Log-in to See your Cart</div>;
   }
 
-  async function getCardData() {
-    const cardData = await getCart();
+  async function getCardData(id: Object) {
+    const cardData = await getCart(id);
 
     if (!cardData.ok) {
       throw new Error("failed to get cart data");

@@ -19,7 +19,6 @@ export async function POST(request: Request) {
     );
     cart.products.push(...productObjectIds);
     await cart.save();
-    console.log("Products added to the cart successfully");
     return NextResponse.json(cart, { status: 200 });
   } catch (error) {
     return NextResponse.json("Internal server error", { status: 500 });

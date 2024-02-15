@@ -19,7 +19,7 @@ export default function Login() {
         }}
       >
         <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-          Sign in to our platform
+          Log-in to our platform
         </h5>
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -28,7 +28,7 @@ export default function Login() {
           <input
             type="email"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            placeholder="name@gmail.com"
+            placeholder="mail@gmail.com.com"
             required
             onChange={(e) => {
               Setusernmae(e.target.value);
@@ -40,6 +40,7 @@ export default function Login() {
             Your password
           </label>
           <input
+            type="password"
             id="password"
             placeholder="••••••••"
             onChange={(e) => {
@@ -70,19 +71,24 @@ export default function Login() {
       </form>
     </div>
   );
-  
+
   async function submitData() {
-    const res = await axios.post(BACKEND_URL + "/api/login", {
-      username: username,
-      password: password,
-    });
-    if (res.status !== 200) {
-      console.log("error");
+    if (!username && !password) {
+      alert("No username or password");
     } else {
-      const { customerID } = res.data[0];
-      console.log(customerID);
-      localStorage.setItem("CustomerID", customerID);
-      router.push("/shop/");
+      const res = await axios.post(BACKEND_URL + "/api/login", {
+        username: username,
+        password: password,
+      });
+      if (res.status !== 200) {
+        alert("something went wrong");
+      } else {
+        const userData = res.data;
+        const CustomerID = userData?.user?.[0]?.customerID;
+        localStorage.setItem("customerID", CustomerID);
+        localStorage.setItem("token", userData.token);
+        router.push("/shop/");
+      }
     }
   }
 }

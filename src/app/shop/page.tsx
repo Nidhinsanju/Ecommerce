@@ -21,7 +21,7 @@ async function Shop() {
         return (
           <div
             key={product.ProductID.toString()}
-            className="w-full md:w-3/6 max-w-72 max-h-96  sm:w-1/2  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            className="relative  w-full md:w-3/6 max-w-72 max-h-96  sm:w-24  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
             <div className="relative h-48 overflow-hidden">
               <img
@@ -30,14 +30,14 @@ async function Shop() {
                 alt="product image"
               />
             </div>
-            <div className="p-4 pb-5 h-44 flex-wrap  md:h-auto">
-              <h3 className="mt-1 text-xl font-semibold mb-2 tracking-tight text-gray-900 dark:text-white   max-h-5 min-h-5">
+            <div className=" min-h-36 max-h-40  flex-wrap  md:h-auto  ">
+              <h3 className="mt-2 text-xl font-semibold mb-2 tracking-tight text-gray-900 dark:text-white   max-h-5 min-h-5">
                 {product.Title}
               </h3>
-              <p className="mt-5  max-h-9 text-base mb-4  min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
+              <p className="mt-5  my-7 text-base  flex-wrap  font-semibold tracking-tight text-gray-900 dark:text-white">
                 {product.Description}
               </p>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center ">
                 <span className="text-lg font-serif font-bold text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
                   ₹{product.Price.toString()}/-
                 </span>

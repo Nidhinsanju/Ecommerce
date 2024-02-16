@@ -20,7 +20,7 @@ async function Shop() {
         return (
           <div
             key={product.ProductID.toString()}
-            className="w-full  max-w-72 max-h-96  sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            className="w-full  max-w-72 max-h-96  sm:w-64 md:w-72 lg:w-72 xl:w-72 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
             <img
               className="p-4 rounded-t-lg max-h-48 mx-auto max-w-full"
@@ -36,8 +36,8 @@ async function Shop() {
                   {product.Description}
                 </h5>
               </div>
-              <div className="flex items-center  justify-between  mt-11 max-h-10 min-h-10">
-                <main className="text-xl font-serif   font-bold  text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
+              <div className="flex items-center  justify-between  mt-11 max-h-10 min-h-10 ">
+                <main className="text-xl font-serif   font-bold  text-gray-900 dark:text-white mb-3  max-h-10 min-h-10 mt-3">
                   ₹{product.Price.toString()}/-
                 </main>
                 <ButtonPress ProductID={product.ProductID} />

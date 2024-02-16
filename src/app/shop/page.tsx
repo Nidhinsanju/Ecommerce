@@ -15,12 +15,12 @@ async function Shop() {
   const data = await getData();
 
   return (
-    <div className="text-white m-10 flex flex-wrap  justify-center">
+    <div className="text-white m-7 flex flex-wrap md:flex-row lg:flex-row  justify-center">
       {data?.map((product: Products) => {
         return (
           <div
             key={product.ProductID.toString()}
-            className="w-full  max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            className="w-full  max-w-72 max-h-96  sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
             <img
               className="p-4 rounded-t-lg max-h-48 mx-auto max-w-full"

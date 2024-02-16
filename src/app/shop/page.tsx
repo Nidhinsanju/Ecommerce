@@ -16,31 +16,31 @@ async function Shop() {
   const data = await getData();
 
   return (
-    <div className="text-white m-10 flex flex-wrap justify-center">
+    <div className="text-white m-7 flex flex-wrap justify-center">
       {data?.map((product: Products) => {
         return (
           <div
             key={product.ProductID.toString()}
-            className="w-3/6 max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            className="w-full md:w-3/6 max-w-72 max-h-96  sm:w-1/2  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
-            <img
-              className="p-4 rounded-t-lg max-h-48 mx-auto max-w-full"
-              src={product.Imagelink}
-              alt="product image"
-            />
-            <div className="px-4 pb-5 h-44 ">
-              <div>
-                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3  max-h-5 min-h-5">
-                  {product.Title}
-                </h3>
-                <h5 className="mt-5 text-xl max-h-9 min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
-                  {product.Description}
-                </h5>
-              </div>
-              <div className="flex items-center justify-between mt-11 max-h-10 min-h-10">
-                <main className="text-xl font-serif font-bold text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                className="p-1 rounded-lg max-h-48 absolute inset-0  w-full object-cover"
+                src={product.Imagelink}
+                alt="product image"
+              />
+            </div>
+            <div className="p-4 pb-5 h-44 flex-wrap  md:h-auto">
+              <h3 className="mt-1 text-xl font-semibold mb-2 tracking-tight text-gray-900 dark:text-white   max-h-5 min-h-5">
+                {product.Title}
+              </h3>
+              <p className="mt-5  max-h-9 text-base mb-4  min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
+                {product.Description}
+              </p>
+              <div className="flex justify-between items-center">
+                <span className="text-lg font-serif font-bold text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
                   ₹{product.Price.toString()}/-
-                </main>
+                </span>
                 <ButtonPress ProductID={product.ProductID} />
               </div>
             </div>

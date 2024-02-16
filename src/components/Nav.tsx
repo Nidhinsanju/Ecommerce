@@ -30,7 +30,11 @@ const ResponsiveNav: React.FC = () => {
         Menu
       </button>
 
-      <div className={`flex ${isDropdownVisible ? "flex-row" : "hidden"}`}>
+      <div
+        className={`flex sm:flex-col md:flex-row ${
+          isDropdownVisible ? "flex-row" : "hidden"
+        }`}
+      >
         {Items.map((data: Nav) => (
           <Link
             href={data.link}

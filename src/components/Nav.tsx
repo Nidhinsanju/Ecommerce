@@ -1,52 +1,27 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { Items } from "../contents/nav";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
+import classNames from "classnames";
 
 interface Nav {
-  title: string;
+  title: String;
   link: Url;
   key?: any;
 }
 
-const ResponsiveNav: React.FC = () => {
-  // State to control the visibility of the dropdown links
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownVisible(!isDropdownVisible);
-  };
-
+export default async function Nav() {
   return (
-    <div
-      className="flex flex-col md:flex-row flex-wrap
-     justify-center  space-evenly items-center m-5 "
-    >
-      <button
-        className="text-white font-extrabold text-lg tracking-wider md:hidden"
-        onClick={toggleDropdown}
-      >
-        Menu
-      </button>
-
-      <div
-        className={`flex sm:flex-col md:flex-row ${
-          isDropdownVisible ? "flex-row" : "hidden"
-        }`}
-      >
-        {Items.map((data: Nav) => (
-          <Link
-            href={data.link}
-            key={data.key}
-            className="text-white font-extrabold text-lg tracking-wider  justify-evenly items-center m-2 hover:text-gray-300"
-          >
-            {data.title}
-          </Link>
-        ))}
-      </div>
+    <div className="flex md:flex-row justify-evenly items-center m-7 sm:flex-col">
+      {Items.map((data: Nav) => (
+        <Link
+          className="text-white font-extrabold text-lg  tracking-wider	"
+          href={data.link}
+          key={data.key}
+        >
+          {data.title}
+        </Link>
+      ))}
     </div>
   );
-};
-
-export default ResponsiveNav;
+}

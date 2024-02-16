@@ -11,10 +11,10 @@ interface Nav {
 
 export default async function Nav() {
   return (
-    <div className="flex flex-row justify-evenly items-center m-7">
+    <div className="flex   flex-wrap flex-col md:flex-row lg:flex-row justify-evenly items-center m-7">
       {Items.map((data: Nav) => (
         <Link
-          className="text-white font-extrabold text-lg  tracking-wider	"
+          className="text-white  font-extrabold text-lg  tracking-wider	"
           href={data.link}
           key={data.key}
         >

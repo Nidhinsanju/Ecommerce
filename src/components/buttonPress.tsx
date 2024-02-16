@@ -12,10 +12,10 @@ export default function ButtonPress({ ProductID }: { ProductID: Number }) {
   }, []);
 
   return (
-    <div className="mt-1 ">
+    <div className="mt-1   ">
       <button
         type="button"
-        className="text-white bg-blue-700 hover:bg-blue-800 max-h-12 min-h-7  min-w-10  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 flex-wrap"
+        className="text-white bg-blue-700  hover:bg-blue-800 max-h-12 min-h-7  min-w-10  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 flex-wrap"
         onClick={() => addToCart(ProductID, customerID)}
       >
         <svg

@@ -2,7 +2,7 @@ import User from "@/models/User";
 import connect from "@/libs/db";
 import { NextResponse } from "next/server";
 import { NextApiRequest, NextApiResponse } from "next";
-import generateToken from "../../auth/middleware/route";
+import generateToken from "../../auth/middleware/token";
 
 export async function POST(request: Request) {
   const res = await request.json();
@@ -16,8 +16,8 @@ export async function POST(request: Request) {
       return NextResponse.json("Token not found", { status: 500 });
     }
 
-    if (user.length !== 0 && token) {
-      return NextResponse.json({ user, token }, { status: 200 });
+    if (user?.length !== 0 && token) {
+      return NextResponse.json({ user, token }, { status: 200 } as const);
     }
 
     return NextResponse.json("Invalid username or password", { status: 401 });

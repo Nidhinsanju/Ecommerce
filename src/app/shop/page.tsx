@@ -1,5 +1,4 @@
 import { getProducts } from "@/utils/Products";
-import { Button } from "@/components/ui/button";
 
 import ButtonPress from "@/components/buttonPress";
 
@@ -21,7 +20,7 @@ async function Shop() {
         return (
           <div
             key={product.ProductID.toString()}
-            className="relative  w-full md:w-3/6 max-w-72 max-h-96  sm:w-24  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            className="relative  w-full md:w-3/6 max-w-72 max-h-96 sm:w-1/2  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
             <div className="relative h-48 overflow-hidden">
               <img

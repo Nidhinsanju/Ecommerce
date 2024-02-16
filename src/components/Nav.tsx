@@ -19,8 +19,10 @@ const ResponsiveNav: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap
-     justify-center  space-evenly items-center m-5 ">
+    <div
+      className="flex flex-col md:flex-row flex-wrap
+     justify-center  space-evenly items-center m-5 "
+    >
       <button
         className="text-white font-extrabold text-lg tracking-wider md:hidden"
         onClick={toggleDropdown}
@@ -29,7 +31,7 @@ const ResponsiveNav: React.FC = () => {
       </button>
 
       <div
-        className={`md:flex md:flex-row ${
+        className={`sm:flex md:flex-col ${
           isDropdownVisible ? "flex" : "hidden"
         }`}
       >

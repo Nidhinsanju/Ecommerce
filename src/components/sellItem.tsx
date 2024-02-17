@@ -17,7 +17,6 @@ export default function Sellitems() {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [rawimage, setRawImage] = useState("");
   const [image, setImage] = useState<string>("");
 
   const ImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,8 +34,8 @@ export default function Sellitems() {
     setCategory(selectedValue);
   };
   return (
-    <div className="text-white border m-4 mt-20 p-5">
-      <label className="mt-3">
+    <div className="text-white border  flex-wrap m-4 mt-20 p-5">
+      <label className="mt-3 sm:w-10 md:w-12 lg:w-52">
         Product Name
         <input
           type="text"
@@ -68,9 +67,6 @@ export default function Sellitems() {
         ></input>
       </article>
       <figure className="mt-10 flex border max-h-72 max-w-85">
-        {/* retrun(
-
-        ) */}
         <div className="border m-2  p-10 h-15  overflow-hidden">
           <img src={image} alt="image" className="h-32 w-32"></img>
         </div>

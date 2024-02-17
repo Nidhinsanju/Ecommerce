@@ -14,7 +14,6 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="flex items-center text-white justify-between flex-wrap p-6">
-      <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72"></div>
       <div className="block lg:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -37,15 +36,15 @@ export default function Nav() {
         </button>
       </div>
       <div
-        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full block flex-grow  lg:flex lg:items-center lg:w-full ${
           isOpen ? "block" : "hidden"
         }`}
       >
         <div className="text-sm lg:flex-grow">
-          <div className="flex md:flex-row justify-evenly items-center mx-7 sm:flex-col">
+          <div className="flex md:flex-row justify-evenly flex-wrap items-center mx-7 sm:flex-col">
             {Items.map((data: Nav) => (
               <Link
-                className="text-white font-extrabold text-lg  tracking-wider	"
+                className="text-white font-extrabold text-lg  tracking-wider sm:mx-4	"
                 href={data.link}
                 key={data.key}
               >

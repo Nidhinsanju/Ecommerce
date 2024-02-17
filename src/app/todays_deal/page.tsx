@@ -14,35 +14,35 @@ interface Products {
 async function Deals() {
   const data = await getItems();
   return (
-    <div className="text-white m-10 flex flex-wrap justify-center">
-      {data?.map((data1: Products) => {
+    <div className="text-white m-7 flex flex-wrap justify-center">
+      {data?.map((product: Products) => {
         return (
           <div
-            key={data1.ProductID.toString()}
-            className="w-3/6 max-w-72 max-h-96  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
+            key={product.ProductID.toString()}
+            className="relative  w-full md:w-3/6 max-w-72 max-h-96 sm:w-1/2  lg:w-1/4 xl:w-1/5 p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3"
           >
-            <img
-              className="p-4 rounded-t-lg max-h-48 mx-auto max-w-full"
-              src={data1.Imagelink}
-              alt="product image"
-            />
-            <div className="px-4 pb-5 h-44 ">
-              <div>
-                <h3 className="mt-1 text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3  max-h-5 min-h-5">
-                  {data1.Title}
-                </h3>
-                <h5 className="mt-5 text-xl max-h-9 min-h-9 font-semibold tracking-tight text-gray-900 dark:text-white">
-                  {data1.Description}
-                </h5>
-                <p className="text-black line-through font-serif text-x">
-                  Rs{data1.Price.toString()}/-
-                </p>
-              </div>
-              <div className="flex items-center justify-between mt-5 max-h-10 min-h-8">
-                <main className="text-xl font-serif font-bold text-gray-900 dark:text-white">
-                  ₹{data1.DealPrice.toString()}/-
-                </main>
-                <ButtonPress ProductID={data1.ProductID} />
+            <div className="relative h-48 overflow-hidden">
+              <img
+                className="p-1 rounded-lg max-h-48 absolute inset-0  w-full object-cover"
+                src={product.Imagelink}
+                alt="product image"
+              />
+            </div>
+            <div className=" min-h-36 max-h-40  flex-wrap  md:h-auto  ">
+              <h3 className="mt-2 text-xl font-semibold mb-2 tracking-tight text-gray-900 dark:text-white   max-h-5 min-h-5">
+                {product.Title}
+              </h3>
+              <p className="mt-5  my-7 text-base  flex-wrap  font-semibold tracking-tight text-gray-900 dark:text-white">
+                {product.Description}
+              </p>
+              <p className="text-black line-through font-serif text-x">
+                Rs{product.Price.toString()}/-
+              </p>
+              <div className="flex justify-between items-center ">
+                <span className="text-lg font-serif font-bold text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
+                  ₹{product.Price.toString()}/-
+                </span>
+                <ButtonPress ProductID={product.ProductID} />
               </div>
             </div>
           </div>

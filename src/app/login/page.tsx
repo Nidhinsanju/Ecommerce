@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "@/contents/Url";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function Login() {
   const router = useRouter();
@@ -85,8 +86,8 @@ export default function Login() {
       } else {
         const userData = res.data;
         const CustomerID = userData?.user?.[0]?.customerID;
-        localStorage.setItem("customerID", CustomerID);
-        localStorage.setItem("token", userData.token);
+        Cookies.set("customerID", CustomerID);
+        Cookies.set("token", userData.token);
         router.push("/shop/");
       }
     }

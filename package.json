@@ -20,6 +20,7 @@
     "cookie": "^0.6.0",
     "cookies": "^0.9.1",
     "git": "^0.1.5",
+    "js-cookie": "^3.0.5",
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.314.0",
@@ -37,6 +38,7 @@
     "web": "^0.0.2"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20",
     "@types/react": "^18",

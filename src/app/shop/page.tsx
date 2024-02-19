@@ -1,5 +1,4 @@
 import { getProducts } from "@/utils/Products";
-
 import ButtonPress from "@/components/buttonPress";
 
 interface Products {

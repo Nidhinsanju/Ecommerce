@@ -3,14 +3,23 @@
 import axios from "axios";
 import { BACKEND_URL } from "@/contents/Url";
 import { customerID } from "@/contents/Url";
+import { useRouter } from "next/navigation";
 
 export default function ButtonPress({ ProductID }: { ProductID: Number }) {
+  const router = useRouter();
   return (
     <div className="mt-1 ">
       <button
         type="button"
         className="text-white bg-blue-700 hover:bg-blue-800 max-h-12 min-h-7  min-w-10  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 flex-wrap"
-        onClick={() => addToCart(ProductID, customerID)}
+        onClick={() => {
+          if (!customerID) {
+            alert("Login to Add product");
+            router.push("/login/");
+          } else {
+            addToCart(ProductID, customerID);
+          }
+        }}
       >
         <svg
           className="w-3.5 h-3.5 me-2"
@@ -28,12 +37,11 @@ export default function ButtonPress({ ProductID }: { ProductID: Number }) {
 }
 
 async function addToCart(productID: Number, customerID: any) {
-  console.log(productID, customerID);
   const res = await axios.put(BACKEND_URL + "/api/cart", {
     ProductID: productID,
     CustomerID: customerID,
   });
   if (res) {
-    console.log(res);
+    alert("Product added to cart");
   }
 }

@@ -1,18 +1,28 @@
 "use client";
 import { ChangeEvent, useEffect, useState } from "react";
 import Dropdown from "./ui/dropDown";
+import { token } from "@/contents/Url";
+import { useRouter } from "next/navigation";
 
 export default function Sellitems() {
   const [data, setData] = useState({});
+  const Router = useRouter();
+  console.log(token);
+
   const Button1 = async () => {
-    const dataObejct = {
-      productName: productName,
-      description: description,
-      category: category,
-      Image: image,
-    };
-    alert("You will get a callback");
-    setData(dataObejct);
+    if (!token) {
+      alert("Login to sell items");
+      Router.push("/login/");
+    } else {
+      const dataObejct = {
+        productName: productName,
+        description: description,
+        category: category,
+        Image: image,
+      };
+      alert("You will get a callback");
+      setData(dataObejct);
+    }
   };
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");

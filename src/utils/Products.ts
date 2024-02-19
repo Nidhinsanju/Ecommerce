@@ -34,18 +34,4 @@ export const getDeals = async () => {
   }
 };
 
-export const getCart = async (id: Object) => {
-  try {
-    await connect();
-    const cart = await Cart.find({ id });
-    return NextResponse.json(cart, { status: 200 });
-  } catch (error) {
-    console.log("error fetch data", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      {
-        status: 500,
-      }
-    );
-  }
-};
+

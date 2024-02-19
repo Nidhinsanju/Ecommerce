@@ -2,15 +2,9 @@
 
 import axios from "axios";
 import { BACKEND_URL } from "@/contents/Url";
-import { useEffect, useState } from "react";
+import { customerID } from "@/contents/Url";
 
 export default function ButtonPress({ ProductID }: { ProductID: Number }) {
-  const [customerID, setcustomerID] = useState("");
-  useEffect(() => {
-    const customerID = localStorage.getItem("CustomerID");
-    // setcustomerID((customerID));
-  }, []);
-
   return (
     <div className="mt-1 ">
       <button
@@ -34,9 +28,10 @@ export default function ButtonPress({ ProductID }: { ProductID: Number }) {
 }
 
 async function addToCart(productID: Number, customerID: any) {
-  const res = await axios.post(BACKEND_URL + "/api/cart", {
+  console.log(productID, customerID);
+  const res = await axios.put(BACKEND_URL + "/api/cart", {
     ProductID: productID,
-    Customerid: customerID,
+    CustomerID: customerID,
   });
   if (res) {
     console.log(res);

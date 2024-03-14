@@ -8,12 +8,12 @@ export async function POST(request: Request) {
   const { username, password } = res;
   try {
     await connect();
-    const user = await User.find({ username: username, password: password });
+    const user = await User.findOne({ username: username, password: password });
     const token = await generateToken(username);
 
     if (!token) {
       return NextResponse.json("Token not found", { status: 500 });
-    } 
+    }
 
     if (user?.length !== 0 && token) {
       return NextResponse.json({ user, token }, { status: 200 } as const);

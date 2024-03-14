@@ -13,9 +13,4 @@ const cartSchema = new Schema({
 });
 
 export default mongoose.models.Cart || mongoose.model("Cart", cartSchema);
-// Title: String,
-// Description: String,
-// Price: Number,
-// ProductID: Number,
-// Imagelink: String,
-// Stock: Boolean,
+

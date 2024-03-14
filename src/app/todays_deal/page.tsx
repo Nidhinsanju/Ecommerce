@@ -40,7 +40,7 @@ async function Deals() {
               </p>
               <div className="flex justify-between items-center ">
                 <span className="text-lg font-serif font-bold text-gray-900 dark:text-white max-h-10 min-h-10 mt-3">
-                  ₹{product.Price.toString()}/-
+                  ₹{product.DealPrice.toString()}/-
                 </span>
                 <ButtonPress ProductID={product.ProductID} />
               </div>

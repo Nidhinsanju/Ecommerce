@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 export default function Sellitems() {
   const [data, setData] = useState({});
   const Router = useRouter();
-  console.log(token);
 
   const Button1 = async () => {
     if (!token) {

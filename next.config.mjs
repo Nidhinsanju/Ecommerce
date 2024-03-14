@@ -1,5 +1,3 @@
-import { model } from "mongoose";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -24,4 +22,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

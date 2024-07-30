@@ -16,12 +16,12 @@ export const Items = [
   },
   {
     title: "Cart",
-    link: "/cart/",
+    link: "/Cart/",
     key: 96,
   },
   {
     title: "Account",
-    link: "/account/",
+    link: "/Account/",
     key: 95,
   },
 ];

@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import Product from "@/models/Products";
 import Deals from "@/models/Deals";
 import connect from "@/libs/db";
-import Cart from "@/models/Cart";
 
 export const getProducts = async () => {
   try {
@@ -33,5 +32,3 @@ export const getDeals = async () => {
     );
   }
 };
-
-

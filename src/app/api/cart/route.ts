@@ -7,13 +7,14 @@ interface Cart {
   _id: string;
   customerID: number;
   products: string[];
+  error?: object;
 }
 
 export async function PUT(request: Request) {
   const res = await request.json();
   const { CustomerID, ProductID } = res;
   if (!CustomerID || !ProductID) {
-    return NextResponse.json("Invalid Request", { status: 304 });
+    return NextResponse.json("Invalid Request", { status: 404 });
   }
   try {
     await connect();
@@ -26,8 +27,12 @@ export async function PUT(request: Request) {
     await cart.save();
     return NextResponse.json(cart, { status: 200 });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json("Internal server error", { status: 500 });
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json(
+      { message: "Internal server error", error: errorMessage },
+      { status: 500 }
+    );
   }
 }
 
@@ -37,11 +42,16 @@ export async function POST(request: Request) {
   try {
     await connect();
     const cart = await Cart.findOne({ customerID: CustomerID });
-    const productsData = await Products.find({ _id: { $in: cart.products } });
-    return NextResponse.json(productsData, { status: 200 });
+    if (cart) {
+      const productsData = await Products.find({ _id: { $in: cart.products } });
+      return NextResponse.json(productsData, { status: 200 });
+    }
+    return NextResponse.json("cart not found", { status: 404 });
   } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Internal server error" },
+      { messsage: "Internal server error", error: errorMessage },
       {
         status: 500,
       }

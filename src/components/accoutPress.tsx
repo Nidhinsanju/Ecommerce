@@ -9,29 +9,34 @@ export default function AccoutSettings() {
   const [name, Setname] = useState();
 
   useEffect(() => {
+    console.log("Accout Settings is running")
     const fetchData = async () => {
-      const res = await fetch(BACKEND_URL + "/api/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: name,
-        }),
-      });
-      if (!res) {
-        return console.log("error");
+      try {
+        const res = await axios.post(BACKEND_URL + "/api/user", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: name,
+          }),
+        });
+        if (!res) {
+          alert("could not load user");
+          return console.log("error");
+        }
+        const data = res;
+        return data;
+      } catch (err) {
+        console.log(err);
       }
-
-      const data = await res.json();
-      return data;
     };
 
     const userdata = async () => {
       const newData = await fetchData();
       if (newData !== null) {
-        const username = newData[0];
-        Setname(username.username);
+        const username = newData;
+        console.log(username);
+        // Setname(username);
       }
     };
     userdata();

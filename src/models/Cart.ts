@@ -13,4 +13,3 @@ const cartSchema = new Schema({
 });
 
 export default mongoose.models.Cart || mongoose.model("Cart", cartSchema);
-

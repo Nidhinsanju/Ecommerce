@@ -13,14 +13,14 @@ export default function Options() {
         <div className="rounded-lg shadow border-grey-200 p-8 ">
           <ul role="list" className="divide-y divide-white">
             <li className="py-4 ">
-              <a href="/account/accountdetail">
+              <a href="/Account/accountdetail">
                 <p className="text-sm font-medium text-white p-1 truncate hover:bg-white hover:text-black hover:rounded-lg hover:w-36 hover:p-1">
                   Password Update
                 </p>
               </a>
             </li>
             <li className="py-4  ">
-              <a href="/account/questions" className="mt-3">
+              <a href="/Account/questions" className="mt-3">
                 <p className="text-sm font-medium p-1 text-white truncate  hover:bg-white hover:text-black hover:rounded-lg hover:w-10 hover:p-1">
                   FAQ
                 </p>
@@ -30,8 +30,12 @@ export default function Options() {
         </div>
         <button
           onClick={() => {
-            Cookies.remove("customerID");
-            Cookies.remove("token");
+            typeof window !== "undefined"
+              ? localStorage.removeItem("customerID")
+              : null;
+            typeof window !== "undefined"
+              ? localStorage.removeItem("token")
+              : null;
             router.push("/login/");
           }}
           type="button"

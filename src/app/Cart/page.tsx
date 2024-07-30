@@ -1,10 +1,8 @@
 "use client";
-import ButtonPress from "@/components/buttonPress";
 import { LoginButton } from "@/components/buttonLogin";
 import Cookies from "js-cookie";
 import { BACKEND_URL } from "@/contents/Url";
 import axios from "axios";
-import { useEffect } from "react";
 
 interface Cart {
   Title: String;
@@ -19,6 +17,7 @@ export default async function Cart() {
   const id = Cookies.get("customerID");
   if (id !== undefined) {
     const cartItems = await getCardData(id);
+    console.log(cartItems);
     if (cartItems?.length > 0) {
       return (
         <div className="text-white m-10 flex flex-wrap justify-center">
@@ -93,12 +92,14 @@ export default async function Cart() {
 }
 
 async function getCardData(id: Object) {
-  const cartData = await axios.post(BACKEND_URL + "/api/cart", {
-    CustomerID: id,
-  });
-  if (!cartData) {
-    alert("Somethng went wrong");
+  if (id) {
+    const cartData = await axios.post(BACKEND_URL + "/api/Cart", {
+      CustomerID: id,
+    });
+    if (cartData.status === 200) {
+      return cartData.data;
+    } else {
+      return [];
+    }
   }
-
-  return cartData.data;
 }

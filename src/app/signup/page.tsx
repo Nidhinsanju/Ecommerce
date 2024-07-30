@@ -101,7 +101,7 @@ export default function Signup() {
         if (res.status !== 200) {
           alert("Something went wrong");
         } else {
-          const { CustomerID: id } = res.data[0];
+          const { customerID: id } = res.data.user;
           localStorage.setItem("CustomerID", id);
           router.push("/shop/");
         }

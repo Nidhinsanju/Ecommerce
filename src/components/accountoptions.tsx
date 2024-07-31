@@ -1,13 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 import { customerID } from "@/contents/Url";
 import { token } from "@/contents/Url";
 import { LoginButton } from "./buttonLogin";
 
 export default function Options() {
   const router = useRouter();
-  if (token !== undefined && customerID !== undefined) {
+  if (token !== null || (undefined && customerID !== null) || undefined) {
     return (
       <div className="max-w-sm mx-auto mt-52  ">
         <div className="rounded-lg shadow border-grey-200 p-8 ">

@@ -2,10 +2,11 @@ import Cart from "@/models/Cart";
 import connect from "@/libs/db";
 import { NextResponse } from "next/server";
 import Products from "@/models/Products";
+import { customerID } from "@/contents/Url";
 
 interface Cart {
   _id: string;
-  customerID: number;
+  customerID: any;
   products: string[];
   error?: object;
 }
@@ -40,18 +41,24 @@ export async function POST(request: Request) {
   const res = await request.json();
   const { CustomerID } = res;
   try {
-    await connect();
-    const cart = await Cart.findOne({ customerID: CustomerID });
-    if (cart) {
-      const productsData = await Products.find({ _id: { $in: cart.products } });
-      return NextResponse.json(productsData, { status: 200 });
+    if (CustomerID === null || undefined) {
+      return NextResponse.json({ "Invalid Request": res }, { status: 404 });
+    } else {
+      await connect();
+      const cart = await Cart.findOne({ customerID: CustomerID });
+      if (cart) {
+        const productsData = await Products.find({
+          _id: { $in: cart.products },
+        });
+        return NextResponse.json(productsData, { status: 200 });
+      }
+      return NextResponse.json("cart not found", { status: 404 });
     }
-    return NextResponse.json("cart not found", { status: 404 });
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { messsage: "Internal server error", error: errorMessage },
+      { messsage: "Internal server error", error: errorMessage, CustomerID },
       {
         status: 500,
       }

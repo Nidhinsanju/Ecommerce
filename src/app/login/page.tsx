@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { BACKEND_URL } from "@/contents/Url";
+import { BACKEND_URL, token } from "@/contents/Url";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
@@ -85,9 +85,11 @@ export default function Login() {
         alert("something went wrong");
       } else {
         const userData = res.data;
-        const CustomerID = userData?.user?.[0]?.customerID;
-        Cookies.set("customerID", CustomerID);
-        Cookies.set("token", userData.token);
+        const CustomerID = userData?.user?.customerID;
+        const token = userData?.token;
+        console.log(userData);
+        localStorage.setItem("token", token);
+        localStorage.setItem("customerID", CustomerID);
         router.push("/shop/");
       }
     }

@@ -14,10 +14,11 @@ interface Cart {
 }
 
 export default async function Cart() {
-  const id = Cookies.get("customerID");
-  if (id !== undefined) {
+  const id =
+    typeof window !== "undefined" ? localStorage.getItem("customerID") : null;
+  if (id !== null || id === undefined) {
+    console.log(id, "this is inside");
     const cartItems = await getCardData(id);
-    console.log(cartItems);
     if (cartItems?.length > 0) {
       return (
         <div className="text-white m-10 flex flex-wrap justify-center">
@@ -70,7 +71,7 @@ export default async function Cart() {
     } else {
       return (
         <div className="bg-black  rounded-lg shadow border-grey-200 p-8  text-white max-w-sm mx-auto mt-52">
-          <div className="flex-row flex-wrap m-3  ">
+          <div className="flex-row flex-wrap m-3">
             Cart is Empty, Add items
             <img
               className="p-1  rounded-lg  rounded-t-lg max-h-48 mx-auto max-w-full"
@@ -84,14 +85,14 @@ export default async function Cart() {
   } else {
     return (
       <div className="bg-black  rounded-lg shadow border-grey-200 p-8  text-white max-w-sm mx-auto mt-52">
-        <div className="flex-row flex-wrap m-3  ">Log-in to View Your Cart</div>
+        <div className="flex-row flex-wrap m-3">Log-in to View Your Cart</div>
         <LoginButton />
       </div>
     );
   }
 }
 
-async function getCardData(id: Object) {
+async function getCardData(id: any) {
   if (id) {
     const cartData = await axios.post(BACKEND_URL + "/api/Cart", {
       CustomerID: id,
@@ -99,7 +100,7 @@ async function getCardData(id: Object) {
     if (cartData.status === 200) {
       return cartData.data;
     } else {
-      return [];
+      return null;
     }
   }
 }
